@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.body);
+  i = req.body.number;
 });
 
 app.listen(3000, () => console.log("The server is working"));

@@ -6,11 +6,29 @@
     <title>Document</title>
   </head>
   <body>
-    Hello
+    <button>Get</button>
+    <button>Post</button>
+
     <script>
-      fetch("http://127.0.0.1:3000")
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+      document
+        .querySelector("button:first-child")
+        .addEventListener("click", () => {
+          fetch("http://127.0.0.1:3000")
+            .then((response) => response.json())
+            .then((data) => console.log(data));
+        });
+
+      document
+        .querySelector("button:last-child")
+        .addEventListener("click", () => {
+          fetch("http://127.0.0.1:3000", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ number: 1 }),
+          });
+        });
     </script>
   </body>
 </html>
